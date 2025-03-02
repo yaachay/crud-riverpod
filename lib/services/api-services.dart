@@ -101,7 +101,7 @@ class UserNotifier extends StateNotifier<UserState> {
     }
   }
 
-  //deleteUser
+  //Delete User
   Future<void> deleteUser(String id) async {
     try {
       final response = await http.delete(Uri.parse("$apiURL/$id"));
@@ -117,50 +117,3 @@ class UserNotifier extends StateNotifier<UserState> {
     }
   }
 }
-
-// final userProvider = StateNotifierProvider<UserNotifier, List<User>>((ref) {
-//   return UserNotifier();
-// });
-
-// class UserNotifier extends StateNotifier<List<User>> {
-//   UserNotifier() : super([]) {
-//     fetchUsers();
-//   }
-
-//   Future<void> fetchUsers() async {
-//     final response = await http.get(Uri.parse(apiURL));
-//     if (response.statusCode == 200) {
-//       final List<dynamic> data = jsonDecode(response.body);
-//       state = data.map((e) => User.fromMap(e)).toList();
-//     }
-//   }
-
-//   Future<void> addUser(User user) async {
-//     final response = await http.post(
-//       Uri.parse(apiURL),
-//       headers: {'Content-Type': 'application/json'},
-//       body: jsonEncode(user.toMap()),
-//     );
-//     if (response.statusCode == 201) {
-//       fetchUsers();
-//     }
-//   }
-
-//   Future<void> updateUser(String id, User user) async {
-//     final response = await http.put(
-//       Uri.parse('$apiURL/$id'),
-//       headers: {'Content-Type': 'application/json'},
-//       body: jsonEncode(user.toMap()),
-//     );
-//     if (response.statusCode == 200) {
-//       fetchUsers();
-//     }
-//   }
-
-//   Future<void> deleteUser(String id) async {
-//     final response = await http.delete(Uri.parse('$apiURL/$id'));
-//     if (response.statusCode == 200 || response.statusCode == 204) {
-//       fetchUsers();
-//     }
-//   }
-// }
