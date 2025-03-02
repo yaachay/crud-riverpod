@@ -28,54 +28,59 @@ class ShimmerList extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+      child: Shimmer.fromColors(
+        baseColor: Palette.shimmerBg,
+        highlightColor: Palette.shimmerHightlight,
+        period: const Duration(milliseconds: 1000),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 100,
+                    height: 20,
+                    color: Colors.grey.withAlpha(100),
+                  ),
+                  SizedBox(height: 2),
+                  Container(
+                    width: 150,
+                    height: 16,
+                    color: Colors.grey.withAlpha(100),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  width: 100,
-                  height: 20,
-                  color: Colors.grey.withAlpha(100),
+                  width: 32,
+                  height: 32,
+                  margin: EdgeInsets.symmetric(horizontal: 7),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withAlpha(100),
+                    shape: BoxShape.circle,
+                  ),
                 ),
-                SizedBox(height: 2),
                 Container(
-                  width: 150,
-                  height: 16,
-                  color: Colors.grey.withAlpha(100),
+                  width: 32,
+                  height: 32,
+                  margin: EdgeInsets.symmetric(horizontal: 7),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withAlpha(100),
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ],
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                width: 32,
-                height: 32,
-                margin: EdgeInsets.symmetric(horizontal: 7),
-                decoration: BoxDecoration(
-                  color: Colors.grey.withAlpha(100),
-                  shape: BoxShape.circle,
-                ),
-              ),
-              Container(
-                width: 32,
-                height: 32,
-                margin: EdgeInsets.symmetric(horizontal: 7),
-                decoration: BoxDecoration(
-                  color: Colors.grey.withAlpha(100),
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

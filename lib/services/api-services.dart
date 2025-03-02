@@ -4,8 +4,13 @@ import 'package:crud_riverpod/models/models.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 
+// Changed new API because of initial api was reached to request limition.
 const String apiURL =
-    "https://crudcrud.com/api/423447b29d9a43ebae60c99b0971fc5d/users";
+    "https://crudcrud.com/api/f900ceab06af4c488c7eac7a2516b39e/users";
+
+// Initial API
+// const String apiURL =
+//     "https://crudcrud.com/api/423447b29d9a43ebae60c99b0971fc5d/users";
 
 class UserState {
   final List<User> users;
@@ -54,7 +59,11 @@ class UserNotifier extends StateNotifier<UserState> {
       final response = await http.post(
         Uri.parse(apiURL),
         headers: {'Content-Type': 'application/json'},
-        body: jsonEncode(user.toMap()),
+        body: jsonEncode({
+          'name': user.name,
+          'age': user.age,
+          'email': user.email,
+        }),
       );
       if (response.statusCode == 201) {
         fetchUsers();
@@ -74,7 +83,11 @@ class UserNotifier extends StateNotifier<UserState> {
       final response = await http.put(
         Uri.parse("$apiURL/$id"),
         headers: {'Content-Type': 'application/json'},
-        body: jsonEncode(user.toMap()),
+        body: jsonEncode({
+          'name': user.name,
+          'age': user.age,
+          'email': user.email,
+        }),
       );
       if (response.statusCode == 200) {
         fetchUsers();

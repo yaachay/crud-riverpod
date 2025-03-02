@@ -81,7 +81,10 @@ class EditUserScreen extends ConsumerWidget {
                                 age: int.parse(ageController.text),
                                 email: emailController.text,
                               ),
-                            ),
+                            )
+                            .then((_) {
+                              Navigator.of(context).pop();
+                            }),
                       }
                       // Add new user
                       : {
@@ -94,7 +97,10 @@ class EditUserScreen extends ConsumerWidget {
                                 age: int.parse(ageController.text),
                                 email: emailController.text,
                               ),
-                            ),
+                            )
+                            .then((_) {
+                              Navigator.of(context).pop();
+                            }),
                       };
                 },
                 child: Text((user != null) ? 'UPDATE USER' : 'ADD USER'),

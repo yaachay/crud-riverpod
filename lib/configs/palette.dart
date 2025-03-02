@@ -10,6 +10,6 @@ class Palette {
   static const Color topBoxShadow = Color(0xFFFFFFFF);
   static const Color bottomBoxShadow = Color(0XFF9D9D9D);
 
-  static const Color shimmerBg = Color(0xFFFFFFFF);
+  static const Color shimmerBg = Color(0x40000000);
   static const Color shimmerHightlight = Color(0x25FFFFFF);
 }
